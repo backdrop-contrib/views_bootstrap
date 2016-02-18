@@ -7,14 +7,14 @@
 /**
  * Class to define a style plugin handler.
  */
-class ViewsBootstrapGridPluginStyle extends views_plugin_style {
+class views_bootstrap_thumbnail_plugin_style extends views_plugin_style {
   /**
    * Definition.
    */
   public function option_definition() {
     $options = parent::option_definition();
     $options['alignment'] = array('default' => 'horizontal');
-    $options['columns'] = array('default' => 2);
+    $options['columns'] = array('default' => 4);
     $options['class_prefix'] = array('default' => 'col-sm');
     return $options;
   }

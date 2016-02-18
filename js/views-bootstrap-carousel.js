@@ -1,5 +1,5 @@
 (function ($) {
-  Drupal.behaviors.viewsBootstrapCarousel = {
+  Backdrop.behaviors.viewsBootstrapCarousel = {
     attach: function(context, settings) {
       $(function () {
         $.each(settings.viewsBootstrap.carousel, function(id, carousel) {

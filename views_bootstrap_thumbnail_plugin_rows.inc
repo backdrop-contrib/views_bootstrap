@@ -7,7 +7,7 @@
 /**
  * Class to define a row plugin handler.
  */
-class ViewsBootstrapThumbnailPluginRows extends views_plugin_row {
+class views_bootstrap_thumbnail_plugin_rows extends views_plugin_row {
   /**
    * Definition.
    */

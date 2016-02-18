@@ -7,7 +7,7 @@
 /**
  * Class to define a style plugin handler.
  */
-class ViewsBootstrapCarouselPluginStyle extends views_plugin_style {
+class views_bootstrap_carousel_plugin_style extends views_plugin_style {
   /**
    * Definition.
    */

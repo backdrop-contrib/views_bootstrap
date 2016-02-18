@@ -7,7 +7,7 @@
 /**
  * Class to define a style plugin handler.
  */
-class ViewsBootstrapMediaPluginStyle extends views_plugin_style {
+class views_bootstrap_media_plugin_style extends views_plugin_style {
   /**
    * Definition.
    */

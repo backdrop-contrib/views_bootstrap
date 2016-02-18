@@ -7,7 +7,7 @@
 /**
  * Class to define a style plugin handler.
  */
-class ViewsBootstrapTabPluginStyle extends views_plugin_style {
+class views_bootstrap_tab_plugin_style extends views_plugin_style {
   /**
    * Definition.
    */
