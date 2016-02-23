@@ -85,9 +85,13 @@ This module provides some format options for your Backdrop Views based on what y
 Can we fix them all?  Maybe, this is just the progress so far.
 
 ACCORDION
+
 content - full content = nothing
+
 content - teaser = nothing
+
 content - full content force using fields = nothing
+
 - fields - select content title - disable link this field to the original piece of content = accordion
 
 CAROUSEL
