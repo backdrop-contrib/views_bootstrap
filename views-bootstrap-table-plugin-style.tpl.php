@@ -29,7 +29,7 @@
   <div class="table-responsive">
 <?php endif ?>
 
-<table <?php if ($classes) { print 'class="'. $classes . '" '; } ?>>
+<table <?php if ($classes) { print 'class="'; foreach($classes as $key => $value) { print $value; } print '" '; } ?>>
   <?php if (!empty($title) || !empty($caption)) : ?>
     <caption><?php print $caption . $title; ?></caption>
   <?php endif; ?>
@@ -48,7 +48,7 @@
   <?php foreach ($rows as $row_count => $row): ?>
     <tr <?php if ($row_classes[$row_count]) { print 'class="' . implode(' ', $row_classes[$row_count]) .'"';  } ?>>
       <?php foreach ($row as $field => $content): ?>
-        <td <?php if ($field_classes[$field][$row_count]) { print 'class="'. $field_classes[$field][$row_count] . '" '; } ?><?php print backdrop_attributes($field_attributes[$field][$row_count]); ?>>
+        <td <?php if ($field_classes[$field][$row_count]) { print 'class="'; foreach($field_classes[$field][$row_count] as $key => $value) { print $value; } print  '" '; } ?><?php print backdrop_attributes($field_attributes[$field][$row_count]); ?>>
           <?php print $content; ?>
         </td>
       <?php endforeach; ?>

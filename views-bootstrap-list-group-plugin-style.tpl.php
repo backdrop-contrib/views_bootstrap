@@ -11,7 +11,7 @@
   <h3><?php print $title ?></h3>
 <?php endif ?>
 
-<<?php print $linked_items ? 'div' : 'ul'?> id="views-bootstrap-list-group-<?php print $id ?>" class="list-group <?php print $classes ?>">
+<<?php print $linked_items ? 'div' : 'ul'?> id="views-bootstrap-list-group-<?php print $id ?>" class="list-group <?php foreach($classes as $key => $value) { print $value; } ?>">
   <?php foreach ($rows as $key => $row): ?>
     <?php if ($linked_items): ?>
       <?php print l($row, $link_fields[$key], array(

@@ -2,7 +2,7 @@
   <h3><?php print $title ?></h3>
 <?php endif ?>
 
-<div id="views-bootstrap-accordion-<?php print $id ?>" class="<?php print $classes ?>">
+<div id="views-bootstrap-accordion-<?php print $id ?>" class="<?php foreach($classes as $key => $value) { print $value; } ?>">
   <?php foreach ($rows as $key => $row): ?>
     <?php if (isset($titles[$key])): ?>
       <div class="panel panel-default">
@@ -16,7 +16,7 @@
             </a>
           </h4>
         </div>
-  
+
         <div id="collapse-<?php print $id . '-' . $key ?>" class="panel-collapse collapse">
           <div class="panel-body">
             <?php print $row ?>

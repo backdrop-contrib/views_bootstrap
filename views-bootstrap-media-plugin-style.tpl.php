@@ -2,7 +2,7 @@
   <h3><?php print $title ?></h3>
 <?php endif ?>
 
-<div id="views-bootstrap-media-<?php print $id ?>" class="<?php print $classes ?>">
+<div id="views-bootstrap-media-<?php print $id ?>" class="<?php foreach($classes as $key => $value) { print $value; } ?>">
   <ul class="media-list">
     <?php foreach ($items as $key => $item): ?>
       <li class="media">

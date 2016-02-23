@@ -16,7 +16,7 @@
   <h3><?php print $title ?></h3>
 <?php endif ?>
 
-<div id="views-bootstrap-thumbnail-<?php print $id ?>" class="<?php print $classes ?>">
+<div id="views-bootstrap-thumbnail-<?php print $id ?>" class="<?php foreach($classes as $key => $value) { print $value; } ?>">
   <?php if ($options['alignment'] == 'horizontal'): ?>
 
     <?php foreach ($items as $row): ?>

@@ -4,11 +4,40 @@
  * Bootstrap integration.
  */
 
+/**
+ * Implements hook_config_info().
+ */
+function views_bootstrap_config_info() {
+  $prefixes['views_bootstrap.settings'] = array(
+    'label' => t('views_bootstrap settings'),
+    'group' => t('Configuration'),
+  );
+  return $prefixes;
+}
+
 function views_bootstrap_init()
 {
-backdrop_add_css('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css', array('type' => 'external', 'every_page' => TRUE, 'preprocess' => TRUE));
+  $views_bootstrap_visibility = config_get('views_bootstrap.settings', 'views_bootstrap_visibility');
+  // Compare with the internal and path alias (if any).
+  $path = backdrop_get_path_alias($_GET['q']);
+  $views_bootstrap_pages = config_get('views_bootstrap.settings', 'views_bootstrap_pages');
 
-backdrop_add_js("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js", array('type' => 'external', 'scope' => 'footer', 'every_page' => TRUE, 'preprocess' => TRUE));
+  // if $views_bootstrap_visibility is 0, then except these pages.  if $views_bootstrap_visibility is 1, then only these pages.
+  if ($views_bootstrap_visibility > 0)
+  {
+    $page_match = backdrop_match_path($path, $views_bootstrap_pages);
+  }
+  else {
+    $page_match = !backdrop_match_path($path, $views_bootstrap_pages);
+  }
+
+   if ($page_match > 0)
+  {
+  // If we have a page match according to the admin settings, load up the Animate CSS file.
+  backdrop_add_css('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css', array('type' => 'external', 'every_page' => TRUE, 'preprocess' => TRUE));
+
+  backdrop_add_js("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js", array('type' => 'external', 'scope' => 'footer', 'every_page' => TRUE, 'preprocess' => TRUE));
+  }
 }
 
 /**
@@ -38,6 +67,25 @@ function views_bootstrap_views_api() {
     'path' => backdrop_get_path('module', 'views_bootstrap'),
     'template_path' => backdrop_get_path('module', 'views_bootstrap'),
   );
+}
+
+ /**
+ * Implements hook_page_menu().
+ */
+function views_bootstrap_menu() {
+  $items = array();
+
+  $items['admin/config/user-interface/views_bootstrap'] = array(
+    'title' => 'Administer Views Bootstrap settings',
+    'description' => 'Administer Views Bootstrap settings',
+    'page callback' => 'backdrop_get_form',
+    'page arguments' => array('views_bootstrap_settings'),
+    'access arguments' => array('access views_bootstrap settings'),
+    'file' => 'views_bootstrap.admin.inc',
+    'type' => MENU_NORMAL_ITEM,
+  );
+
+  return $items;
 }
 
 /**

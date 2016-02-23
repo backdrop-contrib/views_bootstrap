@@ -2,7 +2,7 @@
   <h3><?php print $title ?></h3>
 <?php endif ?>
 
-<div id="views-bootstrap-carousel-<?php print $id ?>" class="<?php print $classes ?>">
+<div id="views-bootstrap-carousel-<?php dsm($rows); print $id ?>" class="<?php foreach($classes as $key => $value) { print $value; } ?>">
   <?php if ($indicators): ?>
     <!-- Carousel indicators -->
     <ol class="carousel-indicators">

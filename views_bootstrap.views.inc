@@ -52,11 +52,11 @@ function views_bootstrap_views_plugins() {
         'uses grouping' => TRUE,
         'uses options' => TRUE,
       ),
-      'views_bootstrap_accordion_plugin_rows' => array(
+      'views_bootstrap_accordion_plugin_style' => array(
         'title' => t('Bootstrap Accordion'),
         'help' => t('Bootstrap Accordion Style'),
-        'handler' => 'views_bootstrap_accordion_plugin_rows',
-        'theme' => 'views_bootstrap_accordion_plugin_rows',
+        'handler' => 'views_bootstrap_accordion_plugin_style',
+        'theme' => 'views_bootstrap_accordion_plugin_style',
         'path' => $module_path,
         'theme path' => $module_path,
         'type' => 'normal',

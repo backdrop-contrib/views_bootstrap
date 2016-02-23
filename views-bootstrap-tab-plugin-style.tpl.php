@@ -2,7 +2,7 @@
   <h3><?php print $title ?></h3>
 <?php endif ?>
 
-<div id="views-bootstrap-tab-<?php print $id ?>" class="<?php print $classes ?>">
+<div id="views-bootstrap-tab-<?php print $id ?>" class="<?php foreach($classes as $key => $value) { print $value; } ?>">
   <ul class="nav nav-<?php print $tab_type?> <?php if ($justified) print 'nav-justified' ?>">
     <?php foreach ($tabs as $key => $tab): ?>
      <li class="<?php if ($key == $first_key) print 'active'?>">
