@@ -94,59 +94,111 @@ content - full content force using fields = nothing
 
 - fields - select content title - disable link this field to the original piece of content = accordion
 
+
+
 CAROUSEL
+
 carousel - full content = nothing
+
 - carousel - force using fields = image rotator
+
 thumbnail = dual image rotator
+
 - content - full content = content rotator (needs styling)
+
 content - teaser = teaser rotator
+
 content - full content force using fields = page showing the first node
+
 - fields - select content title - disable link this field to the original piece of content = list of fields rotator
 
+
 GRID
+
 thumbnail = nothing
+
 thumbnail - force using fields = mis-aligned card type setup
+
 - content - full content = responsive grid like traditional Bootstrap http://getbootstrap.com/css/#grid
+
 content - teaser = responsive grid without images (more grid like)
+
 content - full content force using fields = unpredictable grid
+
 - fields - fields = responsive grid (looks different depending on your fields)
 
+
 LIST GROUP
+
 thumbnail = looks like accordion with no text and direct links to the home page
+
 - thumbnail - force using fields = boxed nodes...traditional table style?
+
 content - full content = it's something?
+
 content - teaser = it's something?
+
 content - full content force using fields = it's something?
+
 - fields - select content title - disable link this field to the original piece of content = it's something?
 
+
 MEDIA OBJECT
+
 thumbnail = nothing
+
 - thumbnail - force using fields = looks like Twitter layout using thumbnails
+
 content - full content = nothing
+
 content - teaser = nothing
+
 content - full content force using fields = nothing
+
 - fields = looks like Twitter layout using thumbnails
 
+
 TAB
+
 thumbnail = nothing
+
 thumbnail - force using fields = nothing
+
 content - full content = working tabs missing tab title text
+
 content - teaser = nothing
+
 - content - full content force using fields = nice tabs or pills or lists
+
 - fields = nice tabs or pills or lists
 
+
 TABLE
+
 thumbnail = nothing
+
 - thumbnail - force using fields = it's a horizontal scrolling table with small text?
+
 content - full content = nothing
+
 content - teaser = nothing
+
 - content - full content force using fields = it's a horizontal scrolling table with small text?
+
 - fields - it's a horizontal scrolling table with small text?
 
+
 THUMBNAILS
+
 thumbnail = nothing
+
 thumbnail - force using fields = it's something?
+
 - content - full content = boxes/cards of content like Pinterest
+
 - content - teaser = boxes/cards of content like Pinterest
+
 - content - full content force using fields = boxes/cards of content like Pinterest
+
 - fields - boxes/cards of content like Pinterest
+
