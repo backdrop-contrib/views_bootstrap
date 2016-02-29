@@ -15,6 +15,9 @@ function views_bootstrap_config_info() {
   return $prefixes;
 }
 
+/**
+ * Implements hook_init().
+ */
 function views_bootstrap_init()
 {
   $views_bootstrap_visibility = config_get('views_bootstrap.settings', 'views_bootstrap_visibility');
@@ -35,6 +38,8 @@ function views_bootstrap_init()
   {
   // If we have a page match according to the admin settings, load up the Animate CSS file.
   backdrop_add_css('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css', array('type' => 'external', 'every_page' => TRUE, 'preprocess' => TRUE));
+
+  backdrop_add_css( backdrop_get_path('module', 'views_bootstrap') . '/css/views_bootstrap.css', array('type' => 'file', 'every_page' => TRUE, 'preprocess' => TRUE));
 
   backdrop_add_js("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js", array('type' => 'external', 'scope' => 'footer', 'every_page' => TRUE, 'preprocess' => TRUE));
   }

@@ -2,7 +2,7 @@
   <h3><?php print $title ?></h3>
 <?php endif ?>
 
-<div id="views-bootstrap-carousel-<?php dsm($rows); print $id ?>" class="<?php foreach($classes as $key => $value) { print $value; } ?>">
+<div id="views-bootstrap-carousel-<?php print $id ?>" data-ride="carousel" class="carousel slide <?php foreach($classes as $key => $value) { print $value; } ?>">
   <?php if ($indicators): ?>
     <!-- Carousel indicators -->
     <ol class="carousel-indicators">
@@ -13,7 +13,7 @@
   <?php endif ?>
 
   <!-- Carousel items -->
-  <div class="carousel-inner">
+  <div class="carousel-inner" role="listbox">
     <?php foreach ($rows as $key => $row): ?>
       <div class="item <?php if ($key == $first_key) print 'active' ?>">
         <?php print $row ?>
@@ -21,12 +21,12 @@
     <?php endforeach ?>
   </div>
 
-  <?php if ($navigation): ?>
+  <?php $id_prev = $id - 1; $id_next = $id + 1; if ($navigation): ?>
     <!-- Carousel navigation -->
-    <a class="carousel-control left" href="#views-bootstrap-carousel-<?php print $id ?>" data-slide="prev">
+    <a class="left carousel-control" href="#views-bootstrap-carousel-<?php print $id ?>" data-slide="prev" role="button">
       <span class="icon-prev"></span>
     </a>
-    <a class="carousel-control right" href="#views-bootstrap-carousel-<?php print $id ?>" data-slide="next">
+    <a class="right carousel-control" href="#views-bootstrap-carousel-<?php print $id ?>" data-slide="next" role="button">
       <span class="icon-next"></span>
     </a>
   <?php endif ?>
