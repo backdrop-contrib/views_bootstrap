@@ -9,3 +9,7 @@ html {
     background-color: inherit;
     border-radius: inherit;
 }
+
+.views-displays .label {
+    color: #666666;
+}
