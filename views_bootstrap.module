@@ -50,16 +50,16 @@ function views_bootstrap_init()
  */
 function views_bootstrap_autoload_info() {
   return array(
-    'views_bootstrap_accordion_plugin_style' => 'views_bootstrap_accordion_plugin_style.inc',
-    'views_bootstrap_carousel_plugin_rows' => 'views_bootstrap_carousel_plugin_rows.inc',
-    'views_bootstrap_carousel_plugin_style' => 'views_bootstrap_carousel_plugin_style.inc',
-    'views_bootstrap_grid_plugin_style' => 'views_bootstrap_grid_plugin_style.inc',
-    'views_bootstrap_list_group_plugin_style' => 'views_bootstrap_list_group_plugin_style.inc',
-    'views_bootstrap_media_plugin_style' => 'views_bootstrap_media_plugin_style.inc',
-    'views_bootstrap_tab_plugin_style' => 'views_bootstrap_tab_plugin_style.inc',
-    'views_bootstrap_table_plugin_style' => 'views_bootstrap_table_plugin_style.inc',
-    'views_bootstrap_thumbnail_plugin_rows' => 'views_bootstrap_thumbnail_plugin_rows.inc',
-    'views_bootstrap_thumbnail_plugin_style' => 'views_bootstrap_thumbnail_plugin_style.inc',
+    'views_bootstrap_accordion_plugin_style' => 'plugins/accordion/views_bootstrap_accordion_plugin_style.inc',
+    'views_bootstrap_carousel_plugin_rows' => 'plugins/carousel/views_bootstrap_carousel_plugin_rows.inc',
+    'views_bootstrap_carousel_plugin_style' => 'plugins/carousel/views_bootstrap_carousel_plugin_style.inc',
+    'views_bootstrap_grid_plugin_style' => 'plugins/grid/views_bootstrap_grid_plugin_style.inc',
+    'views_bootstrap_list_group_plugin_style' => 'plugins/list_group/views_bootstrap_list_group_plugin_style.inc',
+    'views_bootstrap_media_plugin_style' => 'plugins/media/views_bootstrap_media_plugin_style.inc',
+    'views_bootstrap_tab_plugin_style' => 'plugins/tab/views_bootstrap_tab_plugin_style.inc',
+    'views_bootstrap_table_plugin_style' => 'plugins/table/views_bootstrap_table_plugin_style.inc',
+    'views_bootstrap_thumbnail_plugin_rows' => 'plugins/thumbnail/views_bootstrap_thumbnail_plugin_rows.inc',
+    'views_bootstrap_thumbnail_plugin_style' => 'plugins/thumbnail/views_bootstrap_thumbnail_plugin_style.inc',
   );
 }
 
