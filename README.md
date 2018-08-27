@@ -98,7 +98,8 @@ Initial development by Dmitry Demenchuk <http://www.demenchuk.me/>
 MAINTAINERS
 -----------
 
-- seeking
+- Tim Erickson (https://github.com/stpaultim)
+- David Radcliffe (https://github.com/radcliffe)
 
 Ported to Backdrop by:
 
