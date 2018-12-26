@@ -4,6 +4,8 @@
  * Implementation of template preprocess for the view.
  */
 function template_preprocess_views_bootstrap_accordion_plugin_style(&$vars) {
+  _views_bootstrap_include_bootstrap_assets();
+
   $view = &$vars['view'];
   $title_field = $vars['options']['title_field'];
 
@@ -21,6 +23,8 @@ function template_preprocess_views_bootstrap_accordion_plugin_style(&$vars) {
  * Implementation of template preprocess for the view.
  */
 function template_preprocess_views_bootstrap_carousel_plugin_style(&$vars) {
+  _views_bootstrap_include_bootstrap_assets();
+
   backdrop_add_js(array(
     'viewsBootstrap' => array(
       'carousel' => array(
@@ -65,6 +69,8 @@ function template_preprocess_views_bootstrap_carousel_plugin_rows(&$vars) {
  * Implementation of template preprocess for the view.
  */
 function template_preprocess_views_bootstrap_grid_plugin_style(&$vars) {
+  _views_bootstrap_include_bootstrap_assets();
+
   $view     = $vars['view'];
   $options  = $view->style_plugin->options;
   $horizontal = ($options['alignment'] === 'horizontal');
@@ -82,6 +88,8 @@ function template_preprocess_views_bootstrap_grid_plugin_style(&$vars) {
  * Implementation of template preprocess for the view.
  */
 function template_preprocess_views_bootstrap_list_group_plugin_style(&$vars) {
+  _views_bootstrap_include_bootstrap_assets();
+
   $view = $vars['view'];
   $link_field = $vars['options']['link_field'];
 
@@ -97,6 +105,8 @@ function template_preprocess_views_bootstrap_list_group_plugin_style(&$vars) {
  * Implementation of template preprocess for the view.
  */
 function template_preprocess_views_bootstrap_media_plugin_style(&$vars) {
+  _views_bootstrap_include_bootstrap_assets();
+
   $view = &$vars['view'];
 
   $image_field = $vars['options']['image_field'];
@@ -119,6 +129,8 @@ function template_preprocess_views_bootstrap_media_plugin_style(&$vars) {
  * Implementation of template preprocess for the view.
  */
 function template_preprocess_views_bootstrap_tab_plugin_style(&$vars) {
+  _views_bootstrap_include_bootstrap_assets();
+
   $view = &$vars['view'];
   $tab_field = $vars['options']['tab_field'];
 
@@ -142,6 +154,8 @@ function template_preprocess_views_bootstrap_tab_plugin_style(&$vars) {
  * Implementation of template preprocess for the view.
  */
 function template_preprocess_views_bootstrap_table_plugin_style(&$vars) {
+  _views_bootstrap_include_bootstrap_assets();
+
   template_preprocess_views_view_table($vars);
 
   $vars['responsive'] = $vars['options']['responsive'];
@@ -158,6 +172,8 @@ function template_preprocess_views_bootstrap_table_plugin_style(&$vars) {
  * Implementation of template preprocess for the view.
  */
 function template_preprocess_views_bootstrap_thumbnail_plugin_style(&$vars) {
+  _views_bootstrap_include_bootstrap_assets();
+
   $view     = $vars['view'];
   $options  = $view->style_plugin->options;
   $horizontal = ($options['alignment'] === 'horizontal');
