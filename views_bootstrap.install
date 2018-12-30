@@ -8,9 +8,9 @@
 /**
  * Add config option to include Bootstrap assets.
  */
-function views_bootstrap_update_7100() {
+function views_bootstrap_update_1100() {
   $should_include_assets = config_get('views_bootstrap.settings', 'include_bootstrap_assets');
   if ($should_include_assets === NULL) {
-     config_set('views_bootstrap.settings', 'include_bootstrap_assets', TRUE)
+     config_set('views_bootstrap.settings', 'include_bootstrap_assets', TRUE);
   }
 }
