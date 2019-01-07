@@ -53,7 +53,7 @@ function views_bootstrap_menu() {
   $items = array();
 
   $items['admin/config/user-interface/views_bootstrap'] = array(
-    'title' => 'Administer Views Bootstrap settings',
+    'title' => 'Views Bootstrap',
     'description' => 'Administer Views Bootstrap settings',
     'page callback' => 'backdrop_get_form',
     'page arguments' => array('views_bootstrap_settings'),
