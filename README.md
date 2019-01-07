@@ -5,20 +5,30 @@ You want to make lists of content/images that look like responsive Bootstrap gri
 
 This module enables you to create components following the theme structure of the Bootstrap 3.x framework all within the configuration settings of the powerful Views module.
 
+IMPORTANT: If you are not using a bootstrap theme you must check "Include Bootstrap CSS & JS when used by Views" on the config page for this module. 
+
 CONTENTS OF THIS FILE
 ---------------------
 
  - Introduction
+ - Installation
  - Tested
  - Known Issues
  - Special Thanks
  - Requirements
- - Installation
+ - Permissions
  - Coming From Drupal?
  - Usage
  - License
  - Credits
  - Maintainers
+ 
+ INSTALLATION
+------------
+
+1) Install this module using the official Backdrop CMS instructions at https://backdropcms.org/guide/modules
+
+2) Check config options at: admin/config/user-interface/views_bootstrap
 
 TESTED
 -----
@@ -61,20 +71,15 @@ REQUIREMENTS
 
 Views module enabled.  Having a Bootstrap 3.x based theme helps, but there is a module setting for that in this version of the module.
 
-INSTALLATION
-------------
-
-Install this module using the official Backdrop CMS instructions at https://backdropcms.org/guide/modules
-
-COMING FROM DRUPAL?
--------------------
-
-Nothing very much different in UI -- but the code structure has changed significantly due to differences in Backdrop CMS plugin API.
-
 PERMISSIONS
 ------------
 
 none
+
+COMING FROM DRUPAL
+------------------
+
+This module is very similar in functionality to it's Drupal counterpart, however the files have been reorganized a bit. Be sure to check the configuration page if you are not using a Bootstrap theme: admin/config/user-interface/views_bootstrap
 
 USAGE
 -----
