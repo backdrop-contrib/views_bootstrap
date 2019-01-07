@@ -5,3 +5,4 @@ backdrop = 1.x
 version = 1.x-1.x
 dependencies[] = views
 type = module
+configure = admin/config/user-interface/views_bootstrap
