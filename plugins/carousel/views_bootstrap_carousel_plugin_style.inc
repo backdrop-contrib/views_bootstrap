@@ -17,6 +17,7 @@ class views_bootstrap_carousel_plugin_style extends views_plugin_style {
     $options['navigation'] = array('default' => TRUE);
     $options['indicators'] = array('default' => TRUE);
     $options['pause'] = array('default' => FALSE);
+    $options['items_per_slide'] = array('default' => 1);
     return $options;
   }
 
@@ -51,6 +52,13 @@ class views_bootstrap_carousel_plugin_style extends views_plugin_style {
       '#title' => t('Pause on hover'),
       '#description' => t('Pauses the cycling of the carousel on mouseenter and resumes the cycling of the carousel on mouseleave.'),
       '#default_value' => $this->options['pause'],
+    );
+
+    $form['items_per_slide'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Items per slide'),
+      '#description' => t('How many items show per slide.'),
+      '#default_value' => $this->options['items_per_slide'],
     );
   }
 }

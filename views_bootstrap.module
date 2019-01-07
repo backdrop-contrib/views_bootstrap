@@ -4,6 +4,8 @@
  * Bootstrap integration.
  */
 
+define('VIEWS_BOOTSTRAP_ASSETS_VERSION', '3.3.6');
+
 /**
  * Implements hook_config_info().
  */
@@ -13,36 +15,6 @@ function views_bootstrap_config_info() {
     'group' => t('Configuration'),
   );
   return $prefixes;
-}
-
-/**
- * Implements hook_init().
- */
-function views_bootstrap_init()
-{
-  $views_bootstrap_visibility = config_get('views_bootstrap.settings', 'views_bootstrap_visibility');
-  // Compare with the internal and path alias (if any).
-  $path = backdrop_get_path_alias($_GET['q']);
-  $views_bootstrap_pages = config_get('views_bootstrap.settings', 'views_bootstrap_pages');
-
-  // if $views_bootstrap_visibility is 0, then except these pages.  if $views_bootstrap_visibility is 1, then only these pages.
-  if ($views_bootstrap_visibility > 0)
-  {
-    $page_match = backdrop_match_path($path, $views_bootstrap_pages);
-  }
-  else {
-    $page_match = !backdrop_match_path($path, $views_bootstrap_pages);
-  }
-
-   if ($page_match > 0)
-  {
-  // If we have a page match according to the admin settings, load up the Animate CSS file.
-  backdrop_add_css('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css', array('type' => 'external', 'every_page' => TRUE, 'preprocess' => TRUE));
-
-  backdrop_add_css( backdrop_get_path('module', 'views_bootstrap') . '/css/views_bootstrap.css', array('type' => 'file', 'every_page' => TRUE, 'preprocess' => TRUE));
-
-  backdrop_add_js("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js", array('type' => 'external', 'scope' => 'footer', 'every_page' => TRUE, 'preprocess' => TRUE));
-  }
 }
 
 /**
@@ -81,7 +53,7 @@ function views_bootstrap_menu() {
   $items = array();
 
   $items['admin/config/user-interface/views_bootstrap'] = array(
-    'title' => 'Administer Views Bootstrap settings',
+    'title' => 'Views Bootstrap',
     'description' => 'Administer Views Bootstrap settings',
     'page callback' => 'backdrop_get_form',
     'page arguments' => array('views_bootstrap_settings'),
@@ -91,6 +63,38 @@ function views_bootstrap_menu() {
   );
 
   return $items;
+}
+
+/**
+ * Include Bootstrap CSS & JS assets if the site is configured to do so.
+ */
+function _views_bootstrap_include_bootstrap_assets() {
+  // We only want to include assets if the user says so.
+  $should_include_assets = config_get('views_bootstrap.settings', 'include_bootstrap_assets');
+
+  // We never want to include assets on admin pages.
+  $is_admin = path_is_admin(current_path());
+
+  if ($should_include_assets && !$is_admin) {
+    $version = VIEWS_BOOTSTRAP_ASSETS_VERSION;
+
+    backdrop_add_css("https://maxcdn.bootstrapcdn.com/bootstrap/{$version}/css/bootstrap.min.css", array(
+      'type' => 'external',
+      'preprocess' => FALSE,
+      // Load very early so that it's very easy for other CSS to override it.
+      'group' => CSS_SYSTEM,
+      'weight' => -1000,
+    ));
+    backdrop_add_css( backdrop_get_path('module', 'views_bootstrap') . '/css/views_bootstrap.css', array(
+      'type' => 'file',
+      'preprocess' => TRUE,
+    ));
+    backdrop_add_js("https://maxcdn.bootstrapcdn.com/bootstrap/{$version}/js/bootstrap.min.js", array(
+      'type' => 'external',
+      'scope' => 'footer',
+      'preprocess' => FALSE,
+    ));
+  }
 }
 
 /**
@@ -151,204 +155,4 @@ function _views_bootstrap_split_rows($vars, $columns, $horizontal = TRUE) {
   }
 
   return $items;
-}
-
-
-
-/**
- * Implementation of template preprocess for the view.
- */
-function template_preprocess_views_bootstrap_accordion_plugin_style(&$vars) {
-  $view = &$vars['view'];
-  $title_field = $vars['options']['title_field'];
-
-  $vars['classes_array'][] = 'panel-group';
-
-  // Get titles.
-  if (isset($view->field[$title_field])) {
-    foreach (array_keys($vars['rows']) as $key) {
-      $vars['titles'][$key] = $view->style_plugin->get_field($key, $title_field);
-    }
-  }
-}
-
-/**
- * Implementation of template preprocess for the view.
- */
-function template_preprocess_views_bootstrap_carousel_plugin_style(&$vars) {
-  backdrop_add_js(array(
-    'viewsBootstrap' => array(
-      'carousel' => array(
-        $vars['id'] => array(
-          'id' => $vars['id'],
-          'name' => $vars['view']->name,
-          'attributes' => array(
-            'interval' => $vars['options']['interval'] ? (int)$vars['options']['interval'] : FALSE,
-            'pause' => $vars['options']['pause'] ? 'hover' : FALSE,
-          ),
-        ),
-      ),
-    ),
-  ), 'setting');
-
-  backdrop_add_js(backdrop_get_path('module', 'views_bootstrap') . '/js/views-bootstrap-carousel.js');
-
-  $vars['classes_array'][] = 'carousel slide';
-  $vars['attributes_array']['data-ride'] = 'carousel';
-
-  $vars['navigation'] = (bool)$vars['options']['navigation'];
-  $vars['indicators'] = (bool)$vars['options']['indicators'];
-  $keys = array_keys($vars['rows']);
-  $vars['first_key'] = reset($keys);
-}
-
-/**
- * Implementation of template preprocess for the view fields.
- */
-function template_preprocess_views_bootstrap_carousel_plugin_rows(&$vars) {
-  $view = &$vars['view'];
-  $row_index = $view->row_index; // Clone value because get_field will unset it.
-
-  foreach ($vars['options'] as $id => $field) {
-    if (isset($view->field[$field])) {
-      $vars[$id] = $view->style_plugin->get_field($row_index, $field);
-    }
-  }
-}
-
-/**
- * Implementation of template preprocess for the view.
- */
-function template_preprocess_views_bootstrap_grid_plugin_style(&$vars) {
-  $view     = $vars['view'];
-  $options  = $view->style_plugin->options;
-  $horizontal = ($options['alignment'] === 'horizontal');
-
-  $columns = $options['columns'];
-
-  // Split items by rows and columns.
-  $vars['items'] = _views_bootstrap_split_rows($vars, $columns, $horizontal);
-  $vars['column_type'] = 12 / $columns;
-  $vars['class_prefix'] = $options['class_prefix'] ?: 'col-sm';
-}
-
-
-/**
- * Implementation of template preprocess for the view.
- */
-function template_preprocess_views_bootstrap_list_group_plugin_style(&$vars) {
-  $view = $vars['view'];
-  $link_field = $vars['options']['link_field'];
-
-  $vars['linked_items'] = !empty($link_field);
-
-  foreach (array_keys($vars['rows']) as $key) {
-    $vars['link_fields'][$key] = $view->style_plugin->get_field($key, $link_field);
-  }
-}
-
-
-/**
- * Implementation of template preprocess for the view.
- */
-function template_preprocess_views_bootstrap_media_plugin_style(&$vars) {
-  $view = &$vars['view'];
-
-  $image_field = $vars['options']['image_field'];
-  $heading_field = $vars['options']['heading_field'];
-  $body_field = $vars['options']['body_field'];
-
-  $vars['items'] = array();
-
-  foreach (array_keys($vars['rows']) as $key) {
-    $vars['items'][] = array(
-      'image_field' => isset($view->field[$image_field]) ? $view->style_plugin->get_field($key, $image_field) : NULL,
-      'heading_field' => isset($view->field[$heading_field]) ? $view->style_plugin->get_field($key, $heading_field) : NULL,
-      'body_field' => isset($view->field[$body_field]) ? $view->style_plugin->get_field($key, $body_field) : NULL,
-    );
-  }
-}
-
-
-/**
- * Implementation of template preprocess for the view.
- */
-function template_preprocess_views_bootstrap_tab_plugin_style(&$vars) {
-  $view = &$vars['view'];
-  $tab_field = $vars['options']['tab_field'];
-
-  $vars['tab_type'] = $vars['options']['tab_type'];
-  $vars['justified'] = $vars['options']['justified'];
-
-  // Get tabs.
-  if (isset($view->field[$tab_field])) {
-    foreach (array_keys($vars['rows']) as $key) {
-      $vars['tabs'][$key] = $view->style_plugin->get_field_value($key, $tab_field);
-    }
-  }
-
-  $keys = array_keys($vars['rows']);
-  $vars['first_key'] = reset($keys);
-}
-
-
-
-/**
- * Implementation of template preprocess for the view.
- */
-function template_preprocess_views_bootstrap_table_plugin_style(&$vars) {
-  template_preprocess_views_view_table($vars);
-
-  $vars['responsive'] = $vars['options']['responsive'];
-
-  $vars['classes_array'][] = 'table';
-
-  foreach ($vars['options']['bootstrap_styles'] as $style) {
-    $vars['classes_array'][] = 'table-' . $style;
-  }
-}
-
-
-/**
- * Implementation of template preprocess for the view.
- */
-function template_preprocess_views_bootstrap_thumbnail_plugin_style(&$vars) {
-  $view     = $vars['view'];
-  $options  = $view->style_plugin->options;
-  $horizontal = ($options['alignment'] === 'horizontal');
-
-  $columns = $options['columns'];
-
-  // Split items by rows and columns.
-  $vars['items'] = _views_bootstrap_split_rows($vars, $columns, $horizontal);
-  $vars['column_type'] = 12 / $columns;
-  $vars['class_prefix'] = $options['class_prefix'] ?: 'col-sm';
-}
-
-/**
- * Implementation of template preprocess for the view fields.
- */
-function template_preprocess_views_bootstrap_thumbnail_plugin_rows(&$vars) {
-  $view = &$vars['view'];
-  $row_index = $view->row_index; // Clone value because get_field will unset it.
-
-  foreach ($vars['options'] as $id => $field) {
-    switch ($id) {
-      case 'image':
-      case 'title':
-        if (isset($view->field[$field])) {
-          $vars[$id] = $view->style_plugin->get_field($row_index, $field);
-        }
-        break;
-
-      case 'content':
-        $vars[$id] = array();
-        foreach (array_filter($field) as $content_field) {
-          if (isset($view->field[$content_field])) {
-            $vars[$id][$content_field] = $view->style_plugin->get_field($row_index, $content_field);
-          }
-        }
-        break;
-    }
-  }
 }

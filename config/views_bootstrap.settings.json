@@ -1,5 +1,4 @@
 {
     "_config_name": "views_bootstrap.settings",
-    "views_bootstrap_visibility": "",
-    "views_bootstrap_pages": ""
+    "include_bootstrap_assets": false
 }
