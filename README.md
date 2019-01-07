@@ -16,6 +16,7 @@ CONTENTS OF THIS FILE
  - Known Issues
  - Special Thanks
  - Requirements
+ - Permissions
  - Coming From Drupal?
  - Usage
  - License
