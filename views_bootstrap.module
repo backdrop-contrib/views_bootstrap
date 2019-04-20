@@ -72,10 +72,7 @@ function _views_bootstrap_include_bootstrap_assets() {
   // We only want to include assets if the user says so.
   $should_include_assets = config_get('views_bootstrap.settings', 'include_bootstrap_assets');
 
-  // We never want to include assets on admin pages.
-  $is_admin = path_is_admin(current_path());
-
-  if ($should_include_assets && !$is_admin) {
+  if (($should_include_assets)) {
     $version = VIEWS_BOOTSTRAP_ASSETS_VERSION;
 
     backdrop_add_css("https://maxcdn.bootstrapcdn.com/bootstrap/{$version}/css/bootstrap.min.css", array(
