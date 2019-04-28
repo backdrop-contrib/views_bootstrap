@@ -59,9 +59,9 @@ To become familiar with what this module provides:
 
 <http://getbootstrap.com/javascript/#carousel>  <http://getbootstrap.com/components>
 
-This does not require a Bootstrap based theme if you configure this module's settings correctly.
+This does not require a Bootstrap-based theme if you configure this module's settings correctly.
 
-If you do not use a Bootstrap based theme, then you can configure the Views Bootstrap module to load the library from a CDN at /admin/config/user-interface/views_bootstrap
+If you do not use a Bootstrap-based theme, then you can configure the Views Bootstrap module to load the library from a CDN at /admin/config/user-interface/views_bootstrap
 
 SPECIAL THANKS
 --------------
@@ -88,7 +88,7 @@ USAGE
 
 Setup your options in the Views module.  Where you would once choose "List, Table"...now you can also choose "Bootstrap Carousel, Bootstrap Grid" etc...
 
-### What is the difference between using a Bootstrap based theme for your website and using this module?
+### What is the difference between using a Bootstrap-based theme for your website and using this module?
 
 Let's take the use-case of making a "Pinterest-style", responsive card style listing of content on your front page.  On large screens, you want it to be 4 columns wide with a sidebar on the right side.  On smaller screens, it should be 2 columns wide with a sidebar on the right side.  On a small screen, it should be 1 column wide with the sidebar underneath.  Using something like Bartik theme, you can install this module, select it, and it will happen, but the rest of the page will look like Bartik (or your theme).  If you were using something like Radix theme, the theme would look like Bootstrap but you would have to manually add the grid classes to your "cards" in your theme files to make the same effect.
 
