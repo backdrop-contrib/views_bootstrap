@@ -1,8 +1,8 @@
 <?php if (!empty($title)): ?>
-  <h3><?php print $title ?></h3>
+  <h3><?php print $title . ' Etc.'?></h3>
 <?php endif ?>
 
-<div id="views-bootstrap-panel-<?php print $id ?>" class="<?php print $classes ?>">
+<div id="views-bootstrap-panel-<?php print $id ?>" class="<?php print implode(' ', $classes) ?>">
   <?php foreach ($rows as $key => $row): ?>
     <div class="panel panel-<?php print $context ?>">
       <?php if (isset($headers[$key])): ?>
