@@ -11,6 +11,10 @@ function template_preprocess_views_bootstrap_accordion_plugin_style(&$vars) {
   $nested = $vars['options']['nested'];
 
   $vars['classes_array'][] = 'panel-group';
+  if ($nested) {
+    $vars['nested'] = $nested;
+    $vars['classes_array'][] = 'collapse';
+  }
 
   // Get titles.
   if (isset($view->field[$title_field])) {
