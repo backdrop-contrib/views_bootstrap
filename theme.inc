@@ -8,19 +8,19 @@ function template_preprocess_views_bootstrap_accordion_plugin_style(&$vars) {
 
   $view = &$vars['view'];
   $title_field = $vars['options']['title_field'];
-  $nested = $vars['options']['nested'];
+  $nested = !empty($vars['options']['nested']);
 
   $vars['classes_array'][] = 'panel-group';
+  if ($nested) {
+    $vars['nested'] = $nested;
+    $vars['classes_array'][] = 'collapse';
+  }
 
   // Get titles.
   if (isset($view->field[$title_field])) {
     foreach (array_keys($vars['rows']) as $key) {
       $vars['titles'][$key] = $view->style_plugin->get_field($key, $title_field);
     }
-  }
-  
-  if (isset($view->field[$nested])) {
-    $vars['nested'] = 1;
   }
 }
 
