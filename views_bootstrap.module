@@ -70,7 +70,7 @@ function views_bootstrap_menu() {
  */
 function views_bootstrap_permission() {
   return array(
-    'access views bootstrap settings' => array(
+    'access views_bootstrap settings' => array(
       'title' => t('Access Views Bootstrap settings'),
       'description' => t('Access Views Bootstrap settings.'),
     ),
