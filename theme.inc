@@ -8,7 +8,7 @@ function template_preprocess_views_bootstrap_accordion_plugin_style(&$vars) {
 
   $view = &$vars['view'];
   $title_field = $vars['options']['title_field'];
-  $nested = $vars['options']['nested'];
+  $nested = !empty($vars['options']['nested']);
 
   $vars['classes_array'][] = 'panel-group';
   if ($nested) {

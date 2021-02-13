@@ -47,7 +47,7 @@ class views_bootstrap_accordion_plugin_style extends views_plugin_style {
         '#required' => FALSE,
         '#default_value' => $this->options['nested'],
         '#description' => t('Display as a nested accordion.'),
-      );
+      );      
     }
   }
 }

@@ -1,5 +1,6 @@
 <?php if (!empty($title)): ?>
-    <?php if (!empty($nested)): ?>
+
+  <?php if (!empty($nested)): ?>
     <div class="parent panel panel-default">
     <div class="panel-heading">
       <h3 class="panel-title">
@@ -14,6 +15,7 @@
     </h3>
   <?php endif ?>
 <?php endif ?>
+
 
 <?php if (!empty($nested)) $classes[] = 'collapse' ?>
   <div id="views-bootstrap-accordion-<?php print $id ?>"
