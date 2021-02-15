@@ -8,6 +8,11 @@ all within the configuration settings of the powerful Views module.
 IMPORTANT: If you are not using a Bootstrap theme, you must check
 "Include Bootstrap CSS & JS when used by Views" on the configuration page for this module.
 
+If you are using this module, [please let us know](https://github.com/backdrop-contrib/views_bootstrap/issues/27). 
+It motivates us to work on the module when we hear from actual users. 
+
+
+
 CONTENTS OF THIS FILE
 ---------------------
 
@@ -101,13 +106,11 @@ CREDITS
 -----------
 
 Initial development by Dmitry Demenchuk <http://www.demenchuk.me/>
+Initial port by biolithic <https://github.com/biolithic>
+Support for this module provided by <https://www.simplo.site>
 
 MAINTAINERS
 -----------
 
 - Tim Erickson (https://github.com/stpaultim)
 - David Radcliffe (https://github.com/radcliffe)
-
-Ported to Backdrop by:
-
-- biolithic <https://github.com/biolithic>
