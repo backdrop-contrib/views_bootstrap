@@ -105,9 +105,9 @@ This project is GPL v2 software. See the LICENSE.txt file in this directory for 
 CREDITS
 -----------
 
-Initial development by Dmitry Demenchuk <http://www.demenchuk.me/>
-Initial port by biolithic <https://github.com/biolithic>
-Support for this module provided by <https://www.simplo.site>
+- Initial development by Dmitry Demenchuk <http://www.demenchuk.me/>
+- Initial port by biolithic <https://github.com/biolithic>
+- Support for this module provided by <https://www.simplo.site>
 
 MAINTAINERS
 -----------
