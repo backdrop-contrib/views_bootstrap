@@ -14,6 +14,7 @@ class views_bootstrap_accordion_plugin_style extends views_plugin_style {
   public function option_definition() {
     $options = parent::option_definition();
     $options['title_field'] = array('default' => NULL);
+    $options['nested'] = 0;
     return $options;
   }
 
@@ -39,6 +40,14 @@ class views_bootstrap_accordion_plugin_style extends views_plugin_style {
         '#default_value' => $this->options['title_field'],
         '#description' => t('Select the field that will be used as the title.'),
       );
+
+      $form['nested'] = array(
+        '#type' => 'checkbox',
+        '#title' => t('Nested accordion'),
+        '#required' => FALSE,
+        '#default_value' => $this->options['nested'],
+        '#description' => t('Display as a nested accordion.'),
+      );      
     }
   }
 }
