@@ -14,7 +14,7 @@ class views_bootstrap_accordion_plugin_style extends views_plugin_style {
   public function option_definition() {
     $options = parent::option_definition();
     $options['title_field'] = array('default' => NULL);
-    $options['title_tag'] = array('default' => 'h3');
+    $options['title_tag'] = array('default' => 'h4');
     return $options;
   }
 
