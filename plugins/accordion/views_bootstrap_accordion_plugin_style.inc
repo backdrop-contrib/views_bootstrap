@@ -43,7 +43,7 @@ class views_bootstrap_accordion_plugin_style extends views_plugin_style {
 
       $form['title_tag'] = array(
         '#type' => 'select',
-        '#title' => t('Title tag'),
+        '#title' => t('Title HTML tag'),
         '#options' => array(
           'h1' => 'H1',
           'h2' => 'H2',
@@ -55,7 +55,7 @@ class views_bootstrap_accordion_plugin_style extends views_plugin_style {
         ),
         '#required' => TRUE,
         '#default_value' => $this->options['title_tag'],
-        '#description' => t('Select the title tag.'),
+        '#description' => t('HTML tag to be used for the title.'),
       );
     }
   }
