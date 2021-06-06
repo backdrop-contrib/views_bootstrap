@@ -1,6 +1,6 @@
 name = Views Bootstrap
 package = Views
-description = Bootstrap Components
+description = Allows the creation of Views using Bootstrap components.
 backdrop = 1.x
 version = 1.x-1.x
 dependencies[] = views
