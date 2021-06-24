@@ -106,7 +106,6 @@ MAINTAINERS
 -----------
 
 - Tim Erickson (https://github.com/stpaultim)
-- David Radcliffe (https://github.com/radcliffe)
 - [Robert J. Lang (bugfolder)](https://github.com/bugfolder)
 
 CREDITS
