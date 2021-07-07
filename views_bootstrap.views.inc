@@ -128,6 +128,22 @@ function views_bootstrap_views_plugins() {
         'uses options' => TRUE,
         //@TODO:  'uses row plugin' => FALSE, 'uses fields' => TRUE,
       ),
+      'views_bootstrap_panel_plugin_style' => array(
+        'title' => t('Bootstrap Panel'),
+        'help' => t('Bootstrap Panel Style'),
+        'handler' => 'views_bootstrap_panel_plugin_style',
+        'theme' => 'views_bootstrap_panel_plugin_style',
+        'path' => $module_path . '/plugins/panel',
+        'theme path' => $module_path  . '/templates/panel',
+        'theme file' => '../../theme.inc',
+        'type' => 'normal',
+        'parent' => 'default',
+        'uses row plugin' => TRUE,
+        'uses grouping' => TRUE,
+        'uses options' => TRUE,
+        //@TODO:  'uses row plugin' => FALSE, 'uses fields' => TRUE,
+      ),
+
     ),
     'row' => array(
       'views_bootstrap_carousel_plugin_rows' => array(

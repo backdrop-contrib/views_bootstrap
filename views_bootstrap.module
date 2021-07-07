@@ -32,6 +32,7 @@ function views_bootstrap_autoload_info() {
     'views_bootstrap_table_plugin_style' => 'plugins/table/views_bootstrap_table_plugin_style.inc',
     'views_bootstrap_thumbnail_plugin_rows' => 'plugins/thumbnail/views_bootstrap_thumbnail_plugin_rows.inc',
     'views_bootstrap_thumbnail_plugin_style' => 'plugins/thumbnail/views_bootstrap_thumbnail_plugin_style.inc',
+    'views_bootstrap_panel_plugin_style' => 'plugins/panel/views_bootstrap_panel_plugin_style.inc',
   );
 }
 
