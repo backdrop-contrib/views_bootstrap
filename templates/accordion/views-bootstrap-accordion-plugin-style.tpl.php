@@ -11,7 +11,8 @@
             <a class="accordion-toggle collapsed"
               data-toggle="collapse"
               data-parent="#views-bootstrap-accordion-<?php print $id ?>"
-              href="#collapse-<?php print $id . '-' . $key ?>">
+              href="#"
+              data-target="#collapse-<?php print $id . '-' . $key ?>">
               <?php print $titles[$key] ?>
             </a>
           </<?php print $title_tag; ?>>
