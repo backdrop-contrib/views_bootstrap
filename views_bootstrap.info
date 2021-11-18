@@ -1,8 +1,9 @@
 name = Views Bootstrap
-package = Views
 description = Allows the creation of Views using Bootstrap components.
 backdrop = 1.x
-version = 1.x-1.x
-dependencies[] = views
 type = module
+package = Views
+
+dependencies[] = views
+
 configure = admin/config/user-interface/views_bootstrap

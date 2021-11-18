@@ -43,7 +43,7 @@ To use, when you create your View and select its Format, where you would once ch
 
 Knowledge of how to use different Views formats is required. Note that you must configure each View appropriately with fields to get the desired behavior. For example, making an accordion of one field does not work—these require a clickable title and hidden body content.  Making a table of one content teaser does not work—tables consist of fields in rows.
 
-You may have to write some CSS to fine-tune the appearance. 
+You may have to write some CSS to fine-tune the appearance.
 
 JavaScript is required for some components to work properly, and accessibility is not guaranteed. Internet Explorer and older browsers are not supported.
 
@@ -75,7 +75,7 @@ Sponsored by WikiJob <https://www.drupal.org/wikijob>.
 Maintainers
 -----------
 
-- Tim Erickson (https://github.com/stpaultim)
+- [Tim Erickson (stpaultim)](https://github.com/stpaultim)
 - [Robert J. Lang (bugfolder)](https://github.com/bugfolder)
 
 Credits
