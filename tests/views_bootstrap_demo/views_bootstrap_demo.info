@@ -1,0 +1,7 @@
+name = Views Bootstrap Demo
+description = Demonstration pages for Views Bootstrap display settings.
+backdrop = 1.x
+type = module
+package = Views
+
+dependencies[] = views_bootstrap

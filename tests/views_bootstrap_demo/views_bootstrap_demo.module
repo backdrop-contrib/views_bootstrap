@@ -1,0 +1,122 @@
+<?php
+/**
+ * @file
+ *
+ * Provides support for Views Bootstrap demonstration pages.
+ */
+
+/**
+ * Implements hook_config_info().
+ */
+function views_bootstrap_demo_config_info() {
+  $prefixes['field.bundle.node.views_bootstrap_demo'] = array(
+    'label' => t('Node bundle'),
+    'group' => t('Views Bootstrap Demo'),
+  );
+  $prefixes['field.field.field_image'] = array(
+    'label' => t('Image field'),
+    'group' => t('Views Bootstrap Demo'),
+  );
+  $prefixes['field.field.field_snippet'] = array(
+    'label' => t('Snippet field'),
+    'group' => t('Views Bootstrap Demo'),
+  );
+  $prefixes['field.instance.comment.comment_node_views_bootstrap_demo.comment_body'] = array(
+    'label' => t('Comment field instance'),
+    'group' => t('Views Bootstrap Demo'),
+  );
+  $prefixes['field.instance.node.views_bootstrap_demo.body'] = array(
+    'label' => t('Node body field instance'),
+    'group' => t('Views Bootstrap Demo'),
+  );
+  $prefixes['field.instance.node.views_bootstrap_demo.field_image'] = array(
+    'label' => t('Node image field instance'),
+    'group' => t('Views Bootstrap Demo'),
+  );
+  $prefixes['field.instance.node.views_bootstrap_demo.field_snippet'] = array(
+    'label' => t('Node snippet field instance'),
+    'group' => t('Views Bootstrap Demo'),
+  );
+  $prefixes['image.style.views_bootstrap_demo_carousel'] = array(
+    'label' => t('Carousel image style'),
+    'group' => t('Views Bootstrap Demo'),
+  );
+  $prefixes['node.type.views_bootstrap_demo'] = array(
+    'label' => t('Node type'),
+    'group' => t('Views Bootstrap Demo'),
+  );
+  $prefixes['views.view.views_bootstrap_demo'] = array(
+    'label' => t('View with demo pages'),
+    'group' => t('Views Bootstrap Demo'),
+  );
+  return $prefixes;
+}
+
+/**
+ * Implements hook_init();
+ */
+function views_bootstrap_demo_init() {
+  backdrop_add_css(backdrop_get_path('module', 'views_bootstrap_demo') . '/css/views_bootstrap_demo.css');
+}
+
+/**
+ * Implements hook_menu().
+ */
+function views_bootstrap_demo_menu() {
+  $items['admin/content/create-views-bootstrap-demo-content'] = array(
+    'title' => 'Create Views Bootstrap Demo nodes',
+    'page callback' => 'views_bootstrap_demo_create_nodes',
+    'access arguments' => array('administer site configuration'),
+    'type' => MENU_LOCAL_TASK,
+  );
+  return $items;
+}
+
+/**
+ * Create some demonstration nodes for Views Bootstrap Demo.
+ */
+function views_bootstrap_demo_create_nodes() {
+  // Destination directory for images in demo nodes
+  $image_dir = 'public://views_bootstrap_demo';
+  if (!file_prepare_directory($image_dir, FILE_CREATE_DIRECTORY | FILE_MODIFY_PERMISSIONS)) {
+    backdrop_set_message(t('Unable to create or write  to directory %dir.',
+      array('%dir' => $image_dir)), 'error');
+    return;
+  }
+  global $base_url;
+  $image_url_base = $base_url . '/' . backdrop_get_path('module', 'views_bootstrap_demo') . '/images/image_';
+
+  $num_to_create = 6;
+
+  $num_existing_nodes = db_query('
+    SELECT COUNT(1)
+    FROM {node}
+    WHERE type = :type
+    ', array(':type' => 'views_bootstrap_demo'))
+    ->fetchField();
+
+  for ($i = 0; $i < $num_to_create; $i++) {
+    $n = $num_existing_nodes + 1 + $i;
+    $node = new Node();
+    $node->type = 'views_bootstrap_demo';
+    node_object_prepare($node);
+    $node->language = 'und';
+    global $user;
+    $node->uid = $user->uid;
+    $node->status = 1;
+    $node->promote = 0;
+    $node->comment = 0;
+    $node->title = t('Title-@n', array('@n' => $n));
+    $node->field_snippet['und'] = array(array('value' => t('Snippet-@n', array('@n' => $n))));
+    $node->body['und'] = array(array('value' => t('This is body text @n.', array('@n' => $n)), 'format' => 'filtered_html'));
+    $image_url = $image_url_base . (1 + $n % 12) . '.jpg';
+    $new_file = system_retrieve_file($image_url, $image_dir, TRUE);
+    $node->field_image['und'][] = array(
+      'fid' => $new_file->fid,
+      'display' => 1,
+      'description' => t('Views Bootstrap Demo image @n', array('@n' => $n)),
+    );
+    node_save($node);
+  }
+  backdrop_set_message(t('@num Views Bootstrap Demo nodes have been created.', array('@num' => $num_to_create)));
+}

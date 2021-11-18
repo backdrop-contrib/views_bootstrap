@@ -1,0 +1,37 @@
+<?php
+/**
+ * @file
+ *
+ * Provides Views Bootstrap Demo install and uninstall routines.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function views_bootstrap_demo_install() {
+  backdrop_set_message(t('Views Bootstrap Demo has been installed. You can now create some nodes by visiting the page !link.', array('!link' => l('Admin > Content > Create Views Bootstrap Demo nodes', 'admin/content/create-views-bootstrap-demo-content'))));
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function views_bootstrap_demo_uninstall() {
+  $nids = db_query('
+    SELECT nid
+    FROM {node}
+    WHERE type = :type
+    ', array(':type' => 'views_bootstrap_demo'))
+    ->fetchCol();
+  node_delete_multiple($nids);
+  // @todo Deleting the nodes only marks the image files as temporary, so we
+  // can't delete the directory until they're fully removed. Todo is to fully
+  // delete them all, then we can also delete our demo directory.
+//  backdrop_rmdir('public://views_bootstrap_demo');
+
+  // Also drop empty tables we created from the db.
+  db_query('
+    DROP TABLE IF EXISTS {field_data_field_snippet},{field_revision_field_snippet}
+    ')->execute();
+
+  backdrop_set_message(t('@count Views Bootstrap Demo nodes have been deleted.', array('@count' => count($nids))));
+}
