@@ -16,19 +16,26 @@ function views_bootstrap_demo_install() {
  * Implements hook_uninstall().
  */
 function views_bootstrap_demo_uninstall() {
-  $nids = db_query('
-    SELECT nid
-    FROM {node}
+  $nids_fids = db_query('
+    SELECT n.nid, i.field_image_fid
+    FROM {node} n
+    LEFT JOIN {field_data_field_image} i ON i.entity_id = n.nid
     WHERE type = :type
     ', array(':type' => 'views_bootstrap_demo'))
-    ->fetchCol();
-  node_delete_multiple($nids);
-  // @todo Deleting the nodes only marks the image files as temporary, so we
-  // can't delete the directory until they're fully removed. Todo is to fully
-  // delete them all, then we can also delete our demo directory.
-//  backdrop_rmdir('public://views_bootstrap_demo');
+    ->fetchAllKeyed();
 
-  // Also drop empty tables we created from the db.
+  // Delete the nodes
+  node_delete_multiple(array_keys($nids_fids));
+
+  // Fully delete the images (don't wait for cleanup)
+  foreach (array_values($nids_fids) as $fid) {
+    file_delete($fid);
+  }
+
+  // Remove the directory we were storing our node images in.
+  backdrop_rmdir('public://views_bootstrap_demo');
+
+  // Drop now-empty tables we created from the db.
   db_query('
     DROP TABLE IF EXISTS {field_data_field_snippet},{field_revision_field_snippet}
     ')->execute();

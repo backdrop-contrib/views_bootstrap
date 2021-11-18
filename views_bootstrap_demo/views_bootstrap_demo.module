@@ -10,43 +10,43 @@
  */
 function views_bootstrap_demo_config_info() {
   $prefixes['field.bundle.node.views_bootstrap_demo'] = array(
-    'label' => t('Node bundle'),
+    'label' => t('Views Bootstrap Demo node bundle'),
     'group' => t('Views Bootstrap Demo'),
   );
   $prefixes['field.field.field_image'] = array(
-    'label' => t('Image field'),
+    'label' => t('Views Bootstrap Demo Image field'),
     'group' => t('Views Bootstrap Demo'),
   );
   $prefixes['field.field.field_snippet'] = array(
-    'label' => t('Snippet field'),
+    'label' => t('Views Bootstrap Demo Snippet field'),
     'group' => t('Views Bootstrap Demo'),
   );
   $prefixes['field.instance.comment.comment_node_views_bootstrap_demo.comment_body'] = array(
-    'label' => t('Comment field instance'),
+    'label' => t('Views Bootstrap Demo Comment field instance'),
     'group' => t('Views Bootstrap Demo'),
   );
   $prefixes['field.instance.node.views_bootstrap_demo.body'] = array(
-    'label' => t('Node body field instance'),
+    'label' => t('Views Bootstrap Demo node body field instance'),
     'group' => t('Views Bootstrap Demo'),
   );
   $prefixes['field.instance.node.views_bootstrap_demo.field_image'] = array(
-    'label' => t('Node image field instance'),
+    'label' => t('Views Bootstrap Demo node image field instance'),
     'group' => t('Views Bootstrap Demo'),
   );
   $prefixes['field.instance.node.views_bootstrap_demo.field_snippet'] = array(
-    'label' => t('Node snippet field instance'),
+    'label' => t('Views Bootstrap Demo node snippet field instance'),
     'group' => t('Views Bootstrap Demo'),
   );
   $prefixes['image.style.views_bootstrap_demo_carousel'] = array(
-    'label' => t('Carousel image style'),
+    'label' => t('Views Bootstrap Demo Carousel image style'),
     'group' => t('Views Bootstrap Demo'),
   );
   $prefixes['node.type.views_bootstrap_demo'] = array(
-    'label' => t('Node type'),
+    'label' => t('Views Bootstrap Demo node type'),
     'group' => t('Views Bootstrap Demo'),
   );
   $prefixes['views.view.views_bootstrap_demo'] = array(
-    'label' => t('View with demo pages'),
+    'label' => t('Views Bootstrap Demo View with demo pages'),
     'group' => t('Views Bootstrap Demo'),
   );
   return $prefixes;
@@ -109,7 +109,7 @@ function views_bootstrap_demo_create_nodes() {
     $node->title = t('Title-@n', array('@n' => $n));
     $node->field_snippet['und'] = array(array('value' => t('Snippet-@n', array('@n' => $n))));
     $node->body['und'] = array(array('value' => t('This is body text @n.', array('@n' => $n)), 'format' => 'filtered_html'));
-    $image_url = $image_url_base . (1 + $n % 12) . '.jpg';
+    $image_url = $image_url_base . (1 + $n % 6) . '.jpg';
     $new_file = system_retrieve_file($image_url, $image_dir, TRUE);
     $node->field_image['und'][] = array(
       'fid' => $new_file->fid,
