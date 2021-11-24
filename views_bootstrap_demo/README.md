@@ -5,7 +5,7 @@ This module provides a set of demonstrate pages for the Views Bootstrap module.
 
 It creates some initial content nodes and sets up a sample View with displays for all supported Views Bootstrap handlers. You can examine how the Views are configured to see how to use each of the individual handlers.
 
-The bare minimum of CSS is provided for some of the pages, but it is assumed that you will be using your own CSS styling for fine-tuning.
+The bare minimum of CSS is provided for some of the pages, but it is assumed that you will be doing your own CSS styling for fine-tuning.
 
 Installation
 ------------
@@ -17,7 +17,7 @@ Usage
 
 When you enable this module, it will create a new content type, "Views Bootstrap Demo", and a View that contains sample pages of all the types of Views.
 
-To populate the View pages, visit Admin > Content > Create Views Bootstrap Demo nodes. Each time you load this page, it will create six new sample nodes of type "Views Bootstrap Demo." 
+It also creates six new sample nodes of type "Views Bootstrap Demo" that will be used to populate the Views.
 
 (Note: these nodes, and the content type, will be removed when you uninstall the module.)
 

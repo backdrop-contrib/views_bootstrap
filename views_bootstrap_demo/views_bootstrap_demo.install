@@ -9,7 +9,7 @@
  * Implements hook_install().
  */
 function views_bootstrap_demo_install() {
-  backdrop_set_message(t('Views Bootstrap Demo has been installed. You can now create some nodes by visiting the page !link.', array('!link' => l('Admin > Content > Create Views Bootstrap Demo nodes', 'admin/content/create-views-bootstrap-demo-content'))));
+  views_bootstrap_demo_create_nodes();
 }
 
 /**
@@ -40,5 +40,5 @@ function views_bootstrap_demo_uninstall() {
     DROP TABLE IF EXISTS {field_data_field_snippet},{field_revision_field_snippet}
     ')->execute();
 
-  backdrop_set_message(t('@count Views Bootstrap Demo nodes have been deleted.', array('@count' => count($nids))));
+  backdrop_set_message(t('@count Views Bootstrap Demo nodes have been deleted.', array('@count' => count($nids_fids))));
 }
