@@ -60,19 +60,6 @@ function views_bootstrap_demo_init() {
 }
 
 /**
- * Implements hook_menu().
- */
-function views_bootstrap_demo_menu() {
-  $items['admin/content/create-views-bootstrap-demo-content'] = array(
-    'title' => 'Create Views Bootstrap Demo nodes',
-    'page callback' => 'views_bootstrap_demo_create_nodes',
-    'access arguments' => array('administer site configuration'),
-    'type' => MENU_LOCAL_TASK,
-  );
-  return $items;
-}
-
-/**
  * Create some demonstration nodes for Views Bootstrap Demo.
  */
 function views_bootstrap_demo_create_nodes() {
