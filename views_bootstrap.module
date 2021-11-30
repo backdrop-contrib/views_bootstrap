@@ -78,23 +78,33 @@ function views_bootstrap_autoload_info() {
  */
 function _views_bootstrap_include_bootstrap_assets() {
   // We only want to include assets if the user says so.
-  $should_include_assets = config_get('views_bootstrap.settings', 'include_bootstrap_assets');
+  $include_bootstrap_assets = config_get('views_bootstrap.settings', 'include_bootstrap_assets');
 
-  if (($should_include_assets)) {
+  $module_path = backdrop_get_path('module', 'views_bootstrap');
+
+  if (($include_bootstrap_assets)) {
     $version = config_get('views_bootstrap.settings', 'bootstrap_version');
-    $cdn = 'https://maxcdn.bootstrapcdn.com/bootstrap/' . $version;
-    backdrop_add_css($cdn . '/css/bootstrap.min.css', array(
+    if ($version == 'module') {
+      $bootstrap_css = $module_path . '/css/bootstrap.3.4.1.min.css';
+      $bootstrap_js = $module_path . '/js/bootstrap.3.4.1.min.js';
+    }
+    else {
+      $cdn = 'https://maxcdn.bootstrapcdn.com/bootstrap/' . $version;
+      $bootstrap_css = $cdn . '/css/bootstrap.min.css';
+      $bootstrap_js = $cdn . '/js/bootstrap.min.js';
+    }
+    backdrop_add_css($bootstrap_css, array(
       'type' => 'external',
       'preprocess' => FALSE,
       // Load very early so that it's very easy for other CSS to override it.
       'group' => CSS_SYSTEM,
       'weight' => -1000,
     ));
-    backdrop_add_css(backdrop_get_path('module', 'views_bootstrap') . '/css/views_bootstrap.css', array(
+    backdrop_add_css($module_path . '/css/views_bootstrap.css', array(
       'type' => 'file',
       'preprocess' => TRUE,
     ));
-    backdrop_add_js($cdn . '/js/bootstrap.min.js', array(
+    backdrop_add_js($bootstrap_js, array(
       'type' => 'external',
       'scope' => 'footer',
       'preprocess' => FALSE,
