@@ -6,4 +6,6 @@ package = Views
 
 dependencies[] = views
 
+tags[] = Bootstrap
+
 configure = admin/config/user-interface/views_bootstrap

@@ -220,3 +220,14 @@ function views_bootstrap_update_1301(&$sandbox) {
   $sandbox['current']++;
   $sandbox['#finished'] = ($sandbox['current'] / $sandbox['total']);
 }
+
+/**
+ * Implements hook_enable().
+ */
+function views_bootstrap_enable() {
+  $include_bootstrap_assets = config_get('views_bootstrap.settings', 'include_bootstrap_assets');
+   if ($include_bootstrap_assets !== 1) {
+     backdrop_set_message(t('If your site does not use a Bootstrap-based theme, select the option on the <a href="!url">configuration page</a> to include Bootstrap assets.',
+       array('!url' => url('admin/config/user-interface/views_bootstrap'))));
+  }
+}
