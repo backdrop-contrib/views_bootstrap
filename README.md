@@ -16,7 +16,7 @@ Installation
 
 1) Install this module using [the official Backdrop CMS instructions](https://backdropcms.org/guide/modules).
 
-2) Set the config options at admin/config/user-interface/views_bootstrap. **Important**: If you _are not_ using a Bootstrap theme, you must check "Include Bootstrap CSS & JS when used by Views" on the configuration page. If you _are_ using a Bootstrap theme such as [Bootstrap Lite](https://backdropcms.org/project/bootstrap_lite), leave that setting unchecked. Checking it with a Bootstrap theme can result in two copies of the Bootstrap library being loaded, which can give rise to undesired and puzzling behavior.
+2) Set the config options at `admin/config/user-interface/views_bootstrap`. **Important**: If you _are not_ using a Bootstrap theme, you must check "Include Bootstrap CSS & JS when used by Views" on the configuration page. If you _are_ using a Bootstrap theme such as [Bootstrap Lite](https://backdropcms.org/project/bootstrap_lite), leave that setting unchecked. Checking it with a Bootstrap theme can result in two copies of the Bootstrap library being loaded, which can give rise to undesired and puzzling behavior.
 
 Components
 ----------
@@ -37,7 +37,7 @@ The following components of this module have been tested to have a working Views
 Usage
 -----
 
-If you use a Bootstrap 3-based theme, this module will work "out of the box"; enable it and start creating your Views. If you do not use a Bootstrap 3-based theme, then you can configure the Views Bootstrap module to load the Bootstrap library from a CDN at /admin/config/user-interface/views_bootstrap. You can choose from several different versions. In general, the latest (3.4.1) is a good choice, but older versions are supported for compatibility reasons.
+If you use a Bootstrap 3-based theme, this module will work "out of the box"; enable it and start creating your Views. If you do not use a Bootstrap 3-based theme, then you can configure the Views Bootstrap module to load the Bootstrap library from a CDN at `/admin/config/user-interface/views_bootstrap`. You can choose from several different versions. In general, the latest (3.4.1) is a good choice, but older versions are supported for compatibility reasons.
 
 To use, when you create your View and select its Format, where you would once choose from "List", "Table", and so forth, now you can also choose "Bootstrap Carousel, Bootstrap Grid," and many more options.
 
@@ -50,6 +50,8 @@ JavaScript is required for some components to work properly, and accessibility i
 To become familiar with what this module provides, see the Bootstrap 3 documentation:
 
 * [Bootstrap 3.4 Documentation](https://getbootstrap.com/docs/3.4/)
+
+To see examples of all of the displays, enable the Views Bootstrap Demo sub-module that is part of this package.
 
 ### What is the difference between using a Bootstrap-based theme for your website and using this module?
 
@@ -81,10 +83,10 @@ Maintainers
 Credits
 -----------
 
-- Initial development by Dmitry Demenchuk (http://www.demenchuk.me/)
-- Support for this module provided by (https://www.simplo.site)
-- Initial port by biolithic (https://github.com/biolithic)
-- Original Drupal 7 module (https://www.drupal.org/project/views_bootstrap)
+- Initial development by [Dmitry Demenchuk](http://www.demenchuk.me/)
+- Support for this module provided by [Simplo.site](https://www.simplo.site)
+- Initial port by [biolithic](https://github.com/biolithic)
+- Original [Drupal 7 module](https://www.drupal.org/project/views_bootstrap)
 
 License
 -------

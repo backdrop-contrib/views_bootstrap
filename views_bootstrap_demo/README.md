@@ -1,7 +1,7 @@
 Views Bootstrap Demo
 ======================
 
-This module provides a set of demonstrate pages for the Views Bootstrap module. 
+This module provides a set of demonstration pages for the Views Bootstrap module.
 
 It creates some initial content nodes and sets up a sample View with displays for all supported Views Bootstrap handlers. You can examine how the Views are configured to see how to use each of the individual handlers.
 
@@ -23,26 +23,23 @@ It also creates six new sample nodes of type "Views Bootstrap Demo" that will be
 
 These are the paths for the View pages that demonstrate the Views Bootstrap settings with links to the corresponding Bootstrap documentation pages.
 
-* **Accordion** — /views-bootstrap-demo-accordion [[Bootstrap docs]](https://getbootstrap.com/docs/3.4/javascript/#collapse-example-accordion)
-* **Carousel** — /views-bootstrap-demo-carousel [[Bootstrap docs]](https://getbootstrap.com/docs/3.4/javascript/#carousel)
-* **Dropdown** — /views-bootstrap-demo-dropdown [[Bootstrap docs]](https://getbootstrap.com/docs/3.4/javascript/#dropdowns)
-* **Grid** — /views-bootstrap-demo-grid [[Bootstrap docs]](https://getbootstrap.com/docs/3.4/css/#grid)
-* **List Group** — /views-bootstrap-demo-list-group [[Bootstrap docs]](https://getbootstrap.com/docs/3.3/components/#list-group)
-* **Media** — /views-bootstrap-demo-media [[Bootstrap docs]](https://getbootstrap.com/docs/3.3/components/#media)
-* **Panels** — /views-bootstrap-demo-panels [[Bootstrap docs]](https://getbootstrap.com/docs/3.3/components/#panels)
-* **Table** — /views-bootstrap-demo-table [[Bootstrap docs]](https://getbootstrap.com/docs/3.4/css/#tables)
-* **Tabs** — /views-bootstrap-demo-tabs [[Bootstrap docs]](https://getbootstrap.com/docs/3.4/javascript/#tabs)
-* **Thumbnails** — /views-bootstrap-demo-thumbnails [[Bootstrap docs]](https://getbootstrap.com/docs/3.3/components/#thumbnails)
+* **Accordion** — `/views-bootstrap-demo-accordion` [[Bootstrap docs]](https://getbootstrap.com/docs/3.4/javascript/#collapse-example-accordion)
+* **Carousel** — `/views-bootstrap-demo-carousel` [[Bootstrap docs]](https://getbootstrap.com/docs/3.4/javascript/#carousel)
+* **Dropdown** — `/views-bootstrap-demo-dropdown` [[Bootstrap docs]](https://getbootstrap.com/docs/3.4/javascript/#dropdowns)
+* **Grid** — `/views-bootstrap-demo-grid` [[Bootstrap docs]](https://getbootstrap.com/docs/3.4/css/#grid)
+* **List Group** — `/views-bootstrap-demo-list-group` [[Bootstrap docs]](https://getbootstrap.com/docs/3.3/components/#list-group)
+* **Media** — `/views-bootstrap-demo-media` [[Bootstrap docs]](https://getbootstrap.com/docs/3.3/components/#media)
+* **Panels** — `/views-bootstrap-demo-panels` [[Bootstrap docs]](https://getbootstrap.com/docs/3.3/components/#panels)
+* **Table** — `/views-bootstrap-demo-table` [[Bootstrap docs]](https://getbootstrap.com/docs/3.4/css/#tables)
+* **Tabs** — `/views-bootstrap-demo-tabs` [[Bootstrap docs]](https://getbootstrap.com/docs/3.4/javascript/#tabs)
+* **Thumbnails** — `/views-bootstrap-demo-thumbnails` [[Bootstrap docs]](https://getbootstrap.com/docs/3.3/components/#thumbnails)
 
-For best results, set the default layout template to Boxton. Be sure you configure Views Bootstrap at /admin/config/user-interface/views_bootstrap to ensure that either your theme or Views Bootstrap (but not both) loads the Bootstrap libraries.
+For best results, set the default layout template to Boxton. Be sure you configure Views Bootstrap at `/admin/config/user-interface/views_bootstrap` to ensure that either your theme or Views Bootstrap (but not both) loads the Bootstrap libraries.
 
 Known Issues
 ------------
 
 [See the issue queue for known issues.](https://github.com/backdrop-contrib/views_bootstrap/issues)
-
-Special Thanks
---------------
 
 Maintainers
 -----------
