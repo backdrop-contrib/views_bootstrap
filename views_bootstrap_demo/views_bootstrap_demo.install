@@ -68,26 +68,41 @@ function _views_bootstrap_demo_create_nodes() {
 
   for ($i = 0; $i < $num_to_create; $i++) {
     $n = $num_existing_nodes + 1 + $i;
-    $node = new Node();
-    $node->type = 'views_bootstrap_demo';
-    node_object_prepare($node);
-    $node->language = 'und';
-    global $user;
-    $node->uid = $user->uid;
-    $node->status = 1;
-    $node->promote = 0;
-    $node->comment = 0;
-    $node->title = t('Title-@n', array('@n' => $n));
-    $node->field_snippet['und'] = array(array('value' => t('Snippet-@n', array('@n' => $n))));
-    $node->body['und'] = array(array('value' => t('This is body text @n.', array('@n' => $n)), 'format' => 'filtered_html'));
     $image_url = $image_url_base . (1 + $n % 6) . '.jpg';
     $new_file = system_retrieve_file($image_url, $image_dir, TRUE);
-    $node->field_image['und'][] = array(
-      'fid' => $new_file->fid,
-      'display' => 1,
-      'description' => t('Views Bootstrap Demo image @n', array('@n' => $n)),
+    $node = new Node(
+      array(
+        'title' => t('Title-@n', array('@n' => $n)),
+        'body' => array(
+          LANGUAGE_NONE => array(
+            array(
+              'value' => t('This is body text @n.', array('@n' => $n)),
+              'format' => 'filtered_html',
+            ),
+          ),
+        ),
+        'field_snippet' => array(
+          LANGUAGE_NONE => array(
+            array(
+              'value' => t('Snippet-@n', array('@n' => $n)),
+            ),
+          ),
+        ),
+        'field_image' => array(
+          LANGUAGE_NONE => array(
+            array(
+              'fid' => $new_file->fid,
+            ),
+          ),
+        ),
+        'uid' => 1,
+        'promote' => 0,
+        'status' => 1,
+        'comment' => 0,
+        'type' => 'views_bootstrap_demo',
+      ),
     );
-    node_save($node);
+    $node->save();
   }
   backdrop_set_message(t('@num Views Bootstrap Demo nodes have been created.', array('@num' => $num_to_create)));
 }
