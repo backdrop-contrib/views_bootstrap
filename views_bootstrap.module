@@ -87,14 +87,16 @@ function _views_bootstrap_include_bootstrap_assets() {
     if ($version == 'module') {
       $bootstrap_css = $module_path . '/css/bootstrap.3.4.1.min.css';
       $bootstrap_js = $module_path . '/js/bootstrap.3.4.1.min.js';
+      $include_type = "file";
     }
     else {
       $cdn = 'https://maxcdn.bootstrapcdn.com/bootstrap/' . $version;
       $bootstrap_css = $cdn . '/css/bootstrap.min.css';
       $bootstrap_js = $cdn . '/js/bootstrap.min.js';
+      $include_type = "external";
     }
     backdrop_add_css($bootstrap_css, array(
-      'type' => 'external',
+      'type' => $include_type,
       'preprocess' => FALSE,
       // Load very early so that it's very easy for other CSS to override it.
       'group' => CSS_SYSTEM,
@@ -105,7 +107,7 @@ function _views_bootstrap_include_bootstrap_assets() {
       'preprocess' => TRUE,
     ));
     backdrop_add_js($bootstrap_js, array(
-      'type' => 'external',
+      'type' => $include_type,
       'scope' => 'footer',
       'preprocess' => FALSE,
     ));
