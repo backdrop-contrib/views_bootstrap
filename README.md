@@ -5,14 +5,19 @@ This module provides a set of styles for the Views module. It allows you to
 create responsive Bootstrap components, such as grids, carousels, tabs, and
 tables, all within the configuration settings of the powerful Views module.
 
-This module uses the Bootstrap 3.x library. **Bootstrap 3 reached end of life
-in 2019 and no longer receives security updates or bug fixes.**
+This module uses the Bootstrap 3.x library. Bootstrap 3 reached end of life
+in 2019 and is no longer actively maintained. For most Backdrop sites this is
+not a significant concern, as Bootstrap is a frontend library with a limited
+security surface. However, if your organization has strict policies around
+end-of-life dependencies, be aware of this limitation.
 
-**If your site uses a Bootstrap 5 theme** (such as
+There are no plans to add Bootstrap 4 or 5 support to this module. If your
+site uses a Bootstrap 5 theme (such as
 [Bootstrap 5 Lite](https://backdropcms.org/project/bootstrap5_lite)), this
-module is not compatible. Loading Bootstrap 3 and Bootstrap 5 on the same page
-will cause CSS and JavaScript conflicts. In that case, consider contributing to
-or waiting for a future `views_bootstrap5` module.
+module is not compatible — loading Bootstrap 3 and Bootstrap 5 on the same
+page will cause CSS and JavaScript conflicts. A separate `views_bootstrap5`
+module supporting the current version of Bootstrap may be developed in the
+future as a companion to this one.
 
 If you are using this module, [please let us know](https://github.com/backdrop-contrib/views_bootstrap/issues/27).
 It motivates us to work on the module when we hear from actual users.
