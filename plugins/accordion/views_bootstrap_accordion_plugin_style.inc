@@ -18,6 +18,7 @@ class views_bootstrap_accordion_plugin_style extends views_plugin_style {
     $options['label_field'] = array('default' => NULL);
     $options['behavior'] = array('default' => 'closed');
     $options['title_tag'] = array('default' => 'h4');
+    $options['nested'] = array('default' => 0);
     return $options;
   }
 
@@ -66,6 +67,12 @@ class views_bootstrap_accordion_plugin_style extends views_plugin_style {
         '#required' => TRUE,
         '#description' => t('Default panel state for collapse behavior.'),
         '#default_value' => $this->options['behavior'],
+      );
+      $form['nested'] = array(
+        '#type' => 'checkbox',
+        '#title' => t('Nested accordion'),
+        '#default_value' => $this->options['nested'],
+        '#description' => t('When grouping is enabled, display each group as a collapsible section containing its accordion items.'),
       );
       $form['title_tag'] = array(
         '#type' => 'select',
