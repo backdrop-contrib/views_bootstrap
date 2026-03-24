@@ -6,7 +6,9 @@ create responsive Bootstrap components, such as grids, carousels, tabs, and
 tables, all within the configuration settings of the powerful Views module.
 
 This module uses the Bootstrap 3.x library. If your theme uses Bootstrap 4 or
-later, you may experience some incompatibilities.
+later, you may experience some incompatibilities. There are no plans to make this
+module work with Bootstrap 4 or 5. Our current recommendation would be to create
+a new module "Views Bootstrap 4" or "Views Bootstrap 5."
 
 If you are using this module, [please let us know](https://github.com/backdrop-contrib/views_bootstrap/issues/27).
 It motivates us to work on the module when we hear from actual users.
