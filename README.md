@@ -5,10 +5,19 @@ This module provides a set of styles for the Views module. It allows you to
 create responsive Bootstrap components, such as grids, carousels, tabs, and
 tables, all within the configuration settings of the powerful Views module.
 
-This module uses the Bootstrap 3.x library. If your theme uses Bootstrap 4 or
-later, you may experience some incompatibilities. There are no plans to make this
-module work with Bootstrap 4 or 5. Our current recommendation would be to create
-a new module "Views Bootstrap 4" or "Views Bootstrap 5."
+This module uses the Bootstrap 3.x library. Bootstrap 3 reached end of life
+in 2019 and is no longer actively maintained. For most Backdrop sites this is
+not a significant concern, as Bootstrap is a frontend library with a limited
+security surface. However, if your organization has strict policies around
+end-of-life dependencies, be aware of this limitation.
+
+There are no plans to add Bootstrap 4 or 5 support to this module. If your
+site uses a Bootstrap 5 theme (such as
+[Bootstrap 5 Lite](https://backdropcms.org/project/bootstrap5_lite)), this
+module is not compatible — loading Bootstrap 3 and Bootstrap 5 on the same
+page will cause CSS and JavaScript conflicts. A separate `views_bootstrap5`
+module supporting the current version of Bootstrap may be developed in the
+future as a companion to this one.
 
 If you are using this module, [please let us know](https://github.com/backdrop-contrib/views_bootstrap/issues/27).
 It motivates us to work on the module when we hear from actual users.
@@ -39,7 +48,7 @@ The following components of this module have been tested to have a working Views
 Usage
 -----
 
-If you use a Bootstrap 3-based theme, this module will work "out of the box"; enable it and start creating your Views. If you do not use a Bootstrap 3-based theme, then you can configure the Views Bootstrap module to load the Bootstrap library from a CDN at `/admin/config/user-interface/views_bootstrap`. You can choose from several different versions. In general, the latest (3.4.1) is a good choice, but older versions are supported for compatibility reasons.
+If you use a Bootstrap 3-based theme (such as [Bootstrap Lite](https://backdropcms.org/project/bootstrap_lite)), this module will work "out of the box"; enable it and start creating your Views. If you do not use a Bootstrap theme at all, you can configure the Views Bootstrap module to load the Bootstrap 3 library from a CDN at `/admin/config/user-interface/views_bootstrap`. In general, the latest bundled version (3.4.1) is a good choice. **This module is not compatible with Bootstrap 5 themes** — see the compatibility note above.
 
 To use, when you create your View and select its Format, where you would once choose from "List", "Table", and so forth, now you can also choose "Bootstrap Carousel, Bootstrap Grid," and many more options.
 
