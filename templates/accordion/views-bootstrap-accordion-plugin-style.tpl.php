@@ -17,7 +17,7 @@
 ?>
 <?php if (!empty($title)): ?>
   <?php if (!empty($options['nested'])): ?>
-    <div class="panel panel-default">
+    <div class="panel panel-default views-bootstrap-accordion-section">
       <div class="panel-heading" role="tab">
         <<?php print $title_tag; ?> class="panel-title">
           <a class="accordion-toggle collapsed" data-toggle="collapse"
@@ -48,7 +48,7 @@
           <<?php print $title_tag; ?> class="panel-title">
             <a role="button" class="<?php print $title_classes ?>"
               data-toggle="collapse"
-              data-parent="#views-bootstrap-accordion-<?php print $id ?>"
+              <?php if (empty($options['allow_multiple'])): ?>data-parent="#views-bootstrap-accordion-<?php print $id ?>"<?php endif ?>
               href="#collapse-<?php print $id . '-' . $key ?>"
               aria-expanded="<?php print $expanded ?>"
               aria-controls="collapse-<?php print $id . '-' . $key ?>">

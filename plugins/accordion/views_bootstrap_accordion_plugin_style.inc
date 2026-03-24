@@ -19,6 +19,7 @@ class views_bootstrap_accordion_plugin_style extends views_plugin_style {
     $options['behavior'] = array('default' => 'closed');
     $options['title_tag'] = array('default' => 'h4');
     $options['nested'] = array('default' => 0);
+    $options['allow_multiple'] = array('default' => 0);
     return $options;
   }
 
@@ -73,6 +74,12 @@ class views_bootstrap_accordion_plugin_style extends views_plugin_style {
         '#title' => t('Nested accordion'),
         '#default_value' => $this->options['nested'],
         '#description' => t('When grouping is enabled, display each group as a collapsible section containing its accordion items.'),
+      );
+      $form['allow_multiple'] = array(
+        '#type' => 'checkbox',
+        '#title' => t('Allow multiple items open'),
+        '#default_value' => $this->options['allow_multiple'],
+        '#description' => t('By default, opening one item closes any other open item. Enable to allow multiple items to be open at the same time.'),
       );
       $form['title_tag'] = array(
         '#type' => 'select',

@@ -10,6 +10,17 @@ html {
     border-radius: inherit;
 }
 
+/* Nested accordion: space between section panels. */
+.views-bootstrap-accordion-section {
+  margin-bottom: 10px;
+}
+
+/* Nested accordion: indent child items inside each section. */
+.views-bootstrap-accordion-section > .panel-collapse {
+  padding-left: 20px;
+  padding-top: 8px;
+}
+
 /* Restore Views display labels which are overridden by Bootstrap. */
 .views-displays .label {
     color: #000;
